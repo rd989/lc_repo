@@ -1,5 +1,9 @@
 #import <Foundation/Foundation.h>
 
+/***************************
+ SORRY I COULDN'T DO THE SECOND PART OF THE ASSIGNMENT YET!
+ ***************************/
+
 @interface YourClass : NSObject
 {
 	float myFloat;
@@ -88,10 +92,10 @@ int main(int argc, char**argv)
 	NSLog([instance goodbye]);
 	
 	/*MyClass *instance = [[MyClass alloc] init];
-	[instance hello];
-	
-	[instance setMyFloat: 10.0f];
-	NSLog(@"new value is %f", [instance myFloat]);*/
+	 [instance hello];
+	 
+	 [instance setMyFloat: 10.0f];
+	 NSLog(@"new value is %f", [instance myFloat]);*/
 	
 	[pool release];
 	
