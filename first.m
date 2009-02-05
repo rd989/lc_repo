@@ -1,12 +1,11 @@
 #import <Foundation/Foundation.h>
 
-/***************************
- SORRY I COULDN'T DO THE SECOND PART OF THE ASSIGNMENT YET!
- ***************************/
+/****************
+ YourClass
+ *****************/
 
 @interface YourClass : NSObject
 {
-	float myFloat;
 }
 
 - (NSString*)  goodbye;
@@ -18,10 +17,6 @@
 - (id) init
 {
 	self = [super init];
-	if(self != nil)
-	{
-		myFloat = 5.0;
-	}
 	return self;
 }
 
@@ -38,10 +33,15 @@
 
 @end
 
+/****************
+MyClass
+*****************/
 
 @interface MyClass : NSObject
 {
 	float myFloat;
+	YourClass *friend;
+	
 }
 
 - (void) hello;
@@ -53,7 +53,7 @@
 - (id) init
 {
 	self = [super init];
-	if(self != nil)
+	if(self != nil) //Sometimes the NSObject has no memory to allocate the object so it'll return null (nil)
 	{
 		myFloat = 5.0;
 	}
@@ -75,6 +75,19 @@
 	return myFloat;
 }
 
+- (void) setFriend:(YourClass*)val
+{
+	[friend release];
+	friend = val;
+	[friend retain];
+}
+
+- (YourClass*) friend
+{
+	return friend;
+}
+
+
 - (void) dealloc
 {
 	// release any retained objects here.
@@ -92,10 +105,10 @@ int main(int argc, char**argv)
 	NSLog([instance goodbye]);
 	
 	/*MyClass *instance = [[MyClass alloc] init];
-	 [instance hello];
-	 
-	 [instance setMyFloat: 10.0f];
-	 NSLog(@"new value is %f", [instance myFloat]);*/
+	[instance hello];
+	
+	[instance setMyFloat: 10.0f];
+	NSLog(@"new value is %f", [instance myFloat]);*/
 	
 	[pool release];
 	
