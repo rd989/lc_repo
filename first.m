@@ -89,7 +89,8 @@ MyClass
 
 
 - (void) dealloc
-{
+{	
+	[friend release];
 	// release any retained objects here.
 	[super dealloc];
 }
@@ -101,14 +102,15 @@ int main(int argc, char**argv)
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	// allocate an instance
-	YourClass *instance = [[YourClass alloc] init];
-	NSLog([instance goodbye]);
+	YourClass *yourFriend = [[YourClass alloc] init];
+	//NSLog([yourFriend goodbye]);
 	
-	/*MyClass *instance = [[MyClass alloc] init];
-	[instance hello];
+	MyClass *instance = [[MyClass alloc] init];
+	[instance setFriend: yourFriend];
 	
-	[instance setMyFloat: 10.0f];
-	NSLog(@"new value is %f", [instance myFloat]);*/
+	NSLog(@"This is my friend %@ and he says '%@'", [instance friend], [[instance friend] goodbye]);
+	//[instance setMyFloat: 10.0f];
+	//NSLog(@"new value is %f", [instance myFloat]);*/
 	
 	[pool release];
 	
