@@ -43,6 +43,8 @@ int main(int argc, char** argv)
 	Vector v1 = { 5.0f, 2.5f };
 	LinkedVector vref = { v1, NULL };
 	
+	// Here's a comment on the develop branch to demonstrate rebase!
+	
 	printf("<%f, %f>\n", v1.x, v1.y);
 	printf("%p\n", vref.next);
 	
