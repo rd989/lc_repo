@@ -21,8 +21,11 @@ typedef LinkedVector* LinkedVectorRef;
 
 int main(int argc, char** argv)
 {
-  printf("Hello, world!\n");
-  printf("A new line!\n"); 
-printf("Added on the develop branch!\n");
-  return 0;
+	Vector v1 = { 5.0f, 2.5f };
+	LinkedVector vref = { v1, NULL };
+	
+	printf("<%f, %f>\n", v1.x, v1.y);
+	printf("%p\n", vref.next);
+	
+	return 0;
 }
