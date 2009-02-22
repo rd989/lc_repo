@@ -16,6 +16,8 @@ typedef struct LinkedVector
   struct LinkedVector* next;
 } LinkedVector;
 
+typedef LinkedVector* LinkedVectorRef;
+
 // function to create linked vectors
 LinkedVectorRef CreateLinkedVector(float x, float y)
 {
@@ -33,7 +35,6 @@ void DestroyLinkedVector(LinkedVectorRef v)
 	free(v);
 }
  
-typedef LinkedVector* LinkedVectorRef;
 
 
 int main(int argc, char** argv)
