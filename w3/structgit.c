@@ -16,33 +16,13 @@ typedef struct LinkedVector
   struct LinkedVector* next;
 } LinkedVector;
  
-// function to create linked vectors
-LinkedVectorRef CreateLinkedVector(float x, float y)
-{
-  LinkedVectorRef newLinkedVector = malloc(sizeof(LinkedVector));
- 
-  newLinkedVector->point.x = x;
-  newLinkedVector->point.y = y;
- 
-  return newLinkedVector;
-}
- 
-void DestroyLinkedVector(LinkedVectorRef v)
-{
-  v->next = NULL;
-  free(v);
-}
-
 typedef LinkedVector* LinkedVectorRef;
 
 
 int main(int argc, char** argv)
 {
-  Vector v1 = { 5.0f, 2.5f };
-  LinkedVector vref = { v1, NULL };
- 
-  printf("<%f, %f>\n", v1.x, v1.y);
-  printf("%p\n", vref.next);
- 
+  printf("Hello, world!\n");
+  printf("A new line!\n"); 
+printf("Added on the develop branch!\n");
   return 0;
 }
