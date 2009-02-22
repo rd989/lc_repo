@@ -16,6 +16,7 @@ typedef struct LinkedVector
   struct LinkedVector* next;
 } LinkedVector;
 
+// Get rid of that ugly C pointer
 typedef LinkedVector* LinkedVectorRef;
 
 // function to create linked vectors
