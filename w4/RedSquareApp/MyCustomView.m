@@ -26,6 +26,7 @@
 	// instantiated by the nib
 	squareSize = 100.0f;
 	twoFingers = NO;
+	oneFinger = NO;
 	rotation = 0.5f;
 	// You have to explicity turn on multitouch for the view
 	self.multipleTouchEnabled = YES;
@@ -71,13 +72,31 @@
 		twoFingers = YES;
 	}
 	
+	else if([touches count] == 1)
+	{
+		oneFinger = YES;
+	}
+	
 	// tell the view to redraw
 	[self setNeedsDisplay];
 }
 
 - (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
-{
+{	
+	UITouch *touch = [[event allTouches] anyObject];
 	NSLog(@"touches moved count %d, %@", [touches count], touches);
+	
+	//Get CGPoints to calculate angle
+	CGPoint location = [touch locationInView:self];
+	CGPoint plocation = [touch previousLocationInView:self];
+
+	//NSLog(@"MYX %f", location.x);
+	//NSLog(@"MYX %f", location.y);
+	
+	//Get angle with arctan
+	float angle = atan2(location.y-plocation.y,location.x -plocation.x);
+	NSLog(@"angle: %f", angle);
+	rotation=angle/2;
 	
 	// tell the view to redraw
 	[self setNeedsDisplay];
@@ -112,7 +131,7 @@
 	CGContextTranslateCTM(context, centerx, centery);
 	
 	// Uncomment to see the rotated square
-	//CGContextRotateCTM(context, rotation);
+	CGContextRotateCTM(context, rotation);
 	
 	// Set red stroke
 	CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
